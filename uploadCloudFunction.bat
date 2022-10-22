@@ -1,0 +1,1 @@
+"D:\Devtools\Tencent\微信web开发者工具\cli.bat" cloud functions deploy --e cloud1-8g4a3iira9235aea --n quickstartFunctions --r --project "D:\Workshop\Mobile_HDD\learn-cloud" --report_first --report

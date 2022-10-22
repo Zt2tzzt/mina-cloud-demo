@@ -1,0 +1,4 @@
+<button type="primary" bindtap="onAddBtnTap">新增数据</button>
+<button type="primary" bindtap="onDeleteBtnTap">删除数据</button>
+<button type="primary" bindtap="onUpdateBtnTap">修改数据</button>
+<button type="primary" bindtap="onQueryBtnTap">查询数据</button>
