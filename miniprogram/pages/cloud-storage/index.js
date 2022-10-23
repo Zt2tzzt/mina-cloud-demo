@@ -1,66 +1,62 @@
-// pages/cloud-storage/index.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    tempFilePath: ''
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
+  onUploadTap() {
+    // 1.选择本地图片（相册/拍照）
+    wx.chooseMedia({
+      type: 'image',
+    }).then(res => {
+      console.log('choose image res:', res);
+      // 2.获取图片
+      const filePath = res.tempFiles[0].tempFilePath
+      // 3.将图片上传到云存储中。
+      const timestamp = Date.now()
+      const openid = 'open_xxx' // 模拟获取到用户的 openid
+      const extension = filePath.split('.').pop() // 获取图片后缀名
+      const name =  `${timestamp}_${openid}.${extension}` // 生成图片名称
+      return wx.cloud.uploadFile({
+        filePath,
+        cloudPath: 'SondsEufonium/' + name
+      })
+    }).then(res => {
+      console.log('upload image res:', res);
+      this.setData({
+        tempFilePath: res.fileID
+      })
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  onDownloadTap() {
+    // 1.根据 fileID 下载图片
+    wx.cloud.downloadFile({
+      fileID: 'cloud://cloud1-8g4a3iira9235aea.636c-cloud1-8g4a3iira9235aea-1306746431/SondsEufonium/1666528766271_open_xxx.jpg' // 真实开发中不会写死
+    }).then(res => {
+      console.log('download image res:', res);
+      // 2.将图片的路径放到 data 中
+      this.setData({
+        tempFilePath: res.tempFilePath
+      })
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
+  onDeleteloadTap() {
+    wx.cloud.deleteFile({
+      fileList: ['cloud://cloud1-8g4a3iira9235aea.636c-cloud1-8g4a3iira9235aea-1306746431/SondsEufonium/1666528766271_open_xxx.jpg']
+    }).then(res => {
+      console.log('delete image res:', res);
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
+  onTempFileTap() {
+    wx.cloud.getTempFileURL({
+      fileList: [
+        'cloud://cloud1-8g4a3iira9235aea.636c-cloud1-8g4a3iira9235aea-1306746431/SondsEufonium/1666529836647_open_xxx.jpg'
+      ]
+    }).then(res => {
+      console.log('temp file res:', res);
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
-  }
 })

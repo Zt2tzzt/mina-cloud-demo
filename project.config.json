@@ -43,6 +43,16 @@
   "projectname": "quickstart-wx-cloud",
   "libVersion": "2.14.1",
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
+  "srcMiniprogramRoot": "miniprogram/",
+  "compileType": "miniprogram",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
   "condition": {
     "search": {
       "list": []
@@ -66,14 +76,5 @@
       ]
     }
   },
-  "srcMiniprogramRoot": "miniprogram/",
-  "compileType": "miniprogram",
-  "packOptions": {
-    "ignore": [],
-    "include": []
-  },
-  "editorSetting": {
-    "tabIndent": "auto",
-    "tabSize": 2
-  }
+  "simulatorPluginLibVersion": {}
 }

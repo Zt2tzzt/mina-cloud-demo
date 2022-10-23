@@ -1,2 +1,6 @@
-<!--pages/cloud-storage/index.wxml-->
-<text>pages/cloud-storage/index.wxml</text>
+<button bindtap="onUploadTap">上传文件</button>
+<button bindtap="onDownloadTap">下载文件</button>
+<button bindtap="onDeleteloadTap">删除文件</button>
+<button bindtap="onTempFileTap">临时文件</button>
+
+<image src="{{ tempFilePath }}"></image>

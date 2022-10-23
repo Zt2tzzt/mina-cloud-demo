@@ -1,0 +1,12 @@
+<viwe class="title">bili channel 的视频</viwe>
+<view class="list">
+  <block wx:for="{{ biliChannelList }}" wx:key="bvid">
+    <view class="item">
+      <image src="{{ item.pic }}" mode="widthFix"></image>
+      <view>{{ item.author }} - {{ item.title }}</view>
+      <view class="control">
+        <button size="mini" bindtap="onItemDeleteTap" data-item="{{ item }}" data-index="{{ index }}">删除</button>
+      </view>
+    </view>
+  </block>
+</view>
