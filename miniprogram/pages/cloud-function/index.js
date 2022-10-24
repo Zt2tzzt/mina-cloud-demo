@@ -1,66 +1,66 @@
-// pages/cloud-function/index.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    qrCodeFileID: ''
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
+  onTestTap() {
+    wx.cloud.callFunction({
+      name: 'test'
+    }).then(res => {
+      console.log('test res:', res);
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  onSumTap() {
+    const num1 = 20
+    const num2 = 30
+    // 调用云函数
+    wx.cloud.callFunction({
+      name: 'sum',
+      data: {
+        num1,
+        num2
+      }
+    }).then(res => {
+      console.log('sum res:', res);
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
+  onGetOpenidTap() {
+    wx.cloud.callFunction({
+      name: 'fetchopenid'
+    }).then(res => {
+      console.log('openid res:', res);
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
+  onGetBiliChannelTap() {
+    wx.cloud.callFunction({
+      name: 'fetchBiliChannel',
+      data: {
+        play: 200000
+      }
+    }).then(res => {
+      console.log('bili channel res:', res);
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
+  onGetHomeDataTap() {
+    wx.cloud.callFunction({
+      name: 'fetchHome'
+    }).then(res => {
+      console.log('home res:', res);
+    })
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  onGetMiniQRCode() {
+    wx.cloud.callFunction({
+      name: 'fetchCode'
+    }).then(res => {
+      this.setData({
+        qrCodeFileID: res.result.fileID
+      })
+    })
   }
 })

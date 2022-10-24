@@ -72,6 +72,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "cloud-function",
+          "pathName": "pages/cloud-function/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

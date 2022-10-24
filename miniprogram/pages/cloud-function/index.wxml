@@ -1,2 +1,7 @@
-<!--pages/cloud-function/index.wxml-->
-<text>pages/cloud-function/index.wxml</text>
+<button type="primary" bindtap="onTestTap">测试云函数</button>
+<button type="primary" bindtap="onSumTap">计算数字和</button>
+<button type="primary" bindtap="onGetOpenidTap">获取 openid</button>
+<button type="primary" bindtap="onGetBiliChannelTap">获取 bili channel 中的数据</button>
+<button type="primary" bindtap="onGetHomeDataTap">获取 home 数据</button>
+<button type="primary" bindtap="onGetMiniQRCode">获取小程序码</button>
+<image src="{{ qrCodeFileID }}" mode="widthFix"></image>
