@@ -1,30 +1,32 @@
 // index.js
 // const app = getApp()
-const { envList } = require('../../envList.js');
+const {
+  envList
+} = require('../../envList.js');
 
 Page({
   data: {
-    btn: ['cloud-database', 'cloud-storage', 'cloud-function'], 
+    btn: ['cloud-database', 'cloud-storage', 'cloud-function'],
     showUploadTip: false,
     powerList: [{
       title: '云函数',
       tip: '安全、免鉴权运行业务代码',
       showItem: false,
       item: [{
-        title: '获取OpenId',
-        page: 'getOpenId'
-      },
-      //  {
-      //   title: '微信支付'
-      // },
-       {
-        title: '生成小程序码',
-        page: 'getMiniProgramCode'
-      },
-      // {
-      //   title: '发送订阅消息',
-      // }
-    ]
+          title: '获取OpenId',
+          page: 'getOpenId'
+        },
+        //  {
+        //   title: '微信支付'
+        // },
+        {
+          title: '生成小程序码',
+          page: 'getMiniProgramCode'
+        },
+        // {
+        //   title: '发送订阅消息',
+        // }
+      ]
     }, {
       title: '数据库',
       tip: '安全稳定的文档型数据库',
@@ -90,7 +92,7 @@ Page({
       success: (res) => {
         this.onChangeSelectedEnv(res.tapIndex);
       },
-      fail (res) {
+      fail(res) {
         console.log(res.errMsg);
       }
     });

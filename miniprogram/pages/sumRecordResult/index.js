@@ -26,6 +26,7 @@ Page({
         type: 'sumRecord'
       }
     }).then((resp) => {
+      console.log('resp:', resp);
       this.setData({
         record: resp.result.list
       });

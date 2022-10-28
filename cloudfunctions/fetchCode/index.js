@@ -10,6 +10,7 @@ exports.main = async (event, context) => {
     width: 320,
     path: 'pages/cloud-function/index'
   })
+  console.log('qrCoderes:', qrCoderes);
 
   // 2.获取到数据，并且上传到云存储中
   const wxCtx = cloud.getWXContext()
@@ -19,9 +20,11 @@ exports.main = async (event, context) => {
   const extension = qrCoderes.contentType.split('/').pop()
 
   const cloudPath = `${timestamp}_${openid}.${extension}`
+  console.log('cloudPath:', cloudPath);
   const uploadRes = cloud.uploadFile({
     fileContent: qrCoderes.buffer,
     cloudPath
   })
+  console.log('uploadRes', uploadRes);
   return uploadRes
 }
